@@ -1,0 +1,35 @@
+{
+	"name": "oliverthiele/ot-timeline",
+	"type": "typo3-cms-extension",
+	"description": "Content element for displaying a vertical timeline.",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Oliver Thiele",
+			"role": "Developer"
+		}
+	],
+	"keywords": [
+		"typo3",
+		"timeline"
+	],
+	"version": "1.0.0",
+	"require": {
+		"typo3/cms-core": "^12.4||^13.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"OliverThiele\\OtTimeline\\": "Classes"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"OliverThiele\\OtTimeline\\Tests\\": "Tests"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "ot_timeline"
+		}
+	}
+}

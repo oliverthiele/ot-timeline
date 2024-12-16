@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_timeline/Resources/Private/locallang_db.xlf"
+		  date="2024-12-16T11:26:24Z" product-name="ot-timeline">
+		<header/>
+		<body>
+			<trans-unit id="extension.title" resname="extension.title">
+				<source>Timeline</source>
+			</trans-unit>
+			<trans-unit id="wizard.title" resname="wizard.title">
+				<source>Timeline</source>
+			</trans-unit>
+			<trans-unit id="wizard.description" resname="wizard.description">
+				<source>Content element for displaying a timeline.</source>
+			</trans-unit>
+			<trans-unit id="timeline_item.label" resname="timeline_item.label">
+				<source>Timeline Item</source>
+			</trans-unit>
+			<trans-unit id="timeline_item.description" resname="timeline_item.description">
+				<source>A timeline item can have 2 images or one image and one text</source>
+			</trans-unit>
+			<trans-unit id="tx_ottimeline_timeline_item.title" resname="tx_ottimeline_timeline_item.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_ottimeline_timeline_item.text" resname="tx_ottimeline_timeline_item.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_ottimeline_timeline_item.images" resname="tx_ottimeline_timeline_item.images">
+				<source>Images</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

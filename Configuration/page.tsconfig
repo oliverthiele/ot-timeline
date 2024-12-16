@@ -1,0 +1,15 @@
+mod.wizards.newContentElement.wizardItems {
+  common {
+    elements {
+      ot_timeline {
+        iconIdentifier = ot-icon-fas-timeline
+        title = LLL:EXT:ot_timeline/Resources/Private/Language/locallang_db.xlf:wizard.title
+        description = LLL:EXT:ot_timeline/Resources/Private/Language/locallang_db.xlf:wizard.description
+        tt_content_defValues {
+          CType = ot_timeline
+        }
+      }
+    }
+    show := addToList(ot_timeline)
+  }
+}

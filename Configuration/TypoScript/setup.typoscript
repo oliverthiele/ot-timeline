@@ -1,0 +1,36 @@
+tt_content {
+  ot_timeline =< lib.contentElement
+  ot_timeline {
+    templateName = Timeline
+    templateRootPaths {
+      0 = EXT:ot_timeline/Resources/Private/Templates/
+    }
+    layoutRootPaths {
+      0 = EXT:ot_timeline/Resources/Private/Layouts/
+    }
+    partialRootPaths {
+      0 = EXT:ot_timeline/Resources/Private/Partials/
+    }
+    dataProcessing {
+      1734357419 = database-query
+      1734357419 {
+        if.isTrue.field = timeline_items
+        table = tx_ottimeline_timeline_item
+        where.data = field:_ORIG_uid // field:uid
+        where.intval = 1
+        where.wrap = tx_ottimeline_timeline_item.parent_id=|
+
+        orderBy = sorting
+        as = timelineItems
+
+        dataProcessing {
+          10 = files
+          10 {
+            references.fieldName = images
+            references.table = tx_ottimeline_timeline_item
+          }
+        }
+      }
+    }
+  }
+}

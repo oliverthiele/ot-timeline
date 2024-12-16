@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      lang="en" data-namespace-typo3-fluid="true">
+<head>
+    <meta charset="utf-8">
+    <title>Template: Timeline</title>
+</head>
+<body>
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <div class="timeline">
+        <div class="timeline__wrap">
+            <div class="timeline__items">
+                <f:for each="{timelineItems}" as="item">
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <h2>{item.data.title}</h2>
+                            <f:if condition="{item.files -> f:count()} > 0">
+                                <f:for each="{item.files}" as="image">
+                                    <f:image image="{image}" class="img-fluid mb-3" alt="{image.alternative}" maxWidth="700"/>
+                                </f:for>
+                            </f:if>
+                            {item.data.text -> f:format.html()}
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+    </div>
+    <f:comment> <!-- <![CDATA[
+        <f:asset.css identifier="ot-timeline-css" href="EXT:ot_timeline/Resources/Public/Css/timeline.css"/>
+    ]]>	--> </f:comment>
+    <f:asset.script identifier="ot-timeline-js" src="EXT:ot_timeline/Resources/Public/Js/Timeline.js"/>
+    <f:asset.script identifier="ot-timeline-js-init">
+    timeline(document.querySelectorAll('.timeline'), {
+        verticalStartPosition: 'right',
+        visibleItems: 2,
+        verticalTrigger: '150px'
+    });
+    </f:asset.script>
+
+</f:section>
+
+</body>
+</html>

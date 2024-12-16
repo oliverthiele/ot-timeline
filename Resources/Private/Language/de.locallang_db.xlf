@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext"
+		  original="EXT:ot_timeline/Resources/Private/locallang_db.xlf"
+		  date="2024-12-16T11:26:24Z" product-name="ot-timeline">
+		<header/>
+		<body>
+			<trans-unit id="extension.title" resname="extension.title" approved="yes">
+				<source>Timeline</source>
+				<target>Zeitleiste</target>
+			</trans-unit>
+			<trans-unit id="wizard.title" resname="wizard.title" approved="yes">
+				<source>Timeline</source>
+				<target>Zeitleiste</target>
+			</trans-unit>
+			<trans-unit id="wizard.description" resname="wizard.description" approved="yes">
+				<source>Content element for displaying a vertical timeline.</source>
+				<target>Content-Element für die Ausgabe einer Zeitleiste.</target>
+			</trans-unit>
+			<trans-unit id="timeline_item.label" resname="timeline_item.label" approved="yes">
+				<source>Timeline Item</source>
+				<target>Zeitleisten-Element</target>
+			</trans-unit>
+			<trans-unit id="timeline_item.description" resname="timeline_item.description" approved="yes">
+				<source>A timeline item can have 2 images or one image and one text.</source>
+				<target>Ein Element in der Zeitleiste kann 2 Bilder oder ein Bild und einen Text enthalten.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
