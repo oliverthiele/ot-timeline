@@ -1,0 +1,3 @@
+name: oliverthiele/ot-timeline
+dependencies:
+  - typo3/fluid-styled-content

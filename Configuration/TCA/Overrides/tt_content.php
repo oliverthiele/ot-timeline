@@ -7,7 +7,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 defined('TYPO3') or die();
 
 $extensionKey = 'ot_timeline';
-$ll = 'LLL:EXT:' . $extensionKey .'/Resources/Private/Language/locallang_db.xlf:';
+$ll = 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:';
 
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
