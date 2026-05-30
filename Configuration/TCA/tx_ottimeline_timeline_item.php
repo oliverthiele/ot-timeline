@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $ll = 'LLL:EXT:ot_timeline/Resources/Private/Language/locallang_db.xlf:';
 
 return [

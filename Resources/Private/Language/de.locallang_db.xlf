@@ -25,6 +25,18 @@
 				<source>A timeline item can have 2 images or one image and one text.</source>
 				<target>Ein Element in der Zeitleiste kann 2 Bilder oder ein Bild und einen Text enthalten.</target>
 			</trans-unit>
+			<trans-unit id="tx_ottimeline_timeline_item.title" resname="tx_ottimeline_timeline_item.title" approved="yes">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_ottimeline_timeline_item.text" resname="tx_ottimeline_timeline_item.text" approved="yes">
+				<source>Text</source>
+				<target>Text</target>
+			</trans-unit>
+			<trans-unit id="tx_ottimeline_timeline_item.images" resname="tx_ottimeline_timeline_item.images" approved="yes">
+				<source>Images</source>
+				<target>Bilder</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
