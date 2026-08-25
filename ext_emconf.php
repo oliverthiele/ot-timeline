@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_timeline'] = [
     'title' => 'CE Timeline',
     'description' => 'Content element for displaying a vertical timeline.',
     'category' => 'fe',
