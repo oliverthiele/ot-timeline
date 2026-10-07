@@ -5,6 +5,63 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] — 2026-10-07
+
+TYPO3 14.3 only. Projects still on TYPO3 13 stay on 1.x.
+
+### Changed
+
+- Require TYPO3 14.3; declare `typo3/cms-frontend` and
+  `typo3/cms-fluid-styled-content`, which the content element builds on
+- Keep the extension metadata in `composer.json` (`version`,
+  `providesPackages`); TYPO3 14.2+ reads it from there in classic mode as well
+  (#108345)
+- Move the New Content Element Wizard entry from group `default` to `extras` —
+  a timeline is not typical page body content
+- Show the Appearance, Categories and Extended tabs for the content element;
+  frame, spacing and categories can now be set like on core elements
+- Render the item titles one level below the header of the content element
+  (`h3` below an `h2`), or at the default header level when the element has no
+  visible header. **Migration:** the title now carries the class
+  `ot-timeline-title`, and the shipped SCSS styles that class instead of `h2`.
+  Change project styles that target `.timeline__content h2` accordingly
+- Move the timeline initialisation from an inline script into
+  `Resources/Public/Js/TimelineInit.js`; it selects `[data-js="otTimeline"]`,
+  and the options are `data-*` attributes on that element. **Migration:**
+  projects that override `Timeline.html` set the options as
+  `data-vertical-start-position`, `data-visible-items`, `data-vertical-trigger`
+  etc. instead of editing the `timeline()` call
+- Replace `ctrl.searchFields` of `tx_ottimeline_timeline_item`, which TYPO3 14
+  no longer evaluates (#106972), with `'searchable' => false` on the fields
+  that were not in it; the backend search finds the same fields as before
+- Declare `tx_ottimeline_timeline_item` workspace aware with `versioningWS`: it
+  is an inline child of `tt_content`, which is. TYPO3 already did this at
+  runtime and created the `t3ver_*` columns, so the schema does not change
+- Convert the language files to XLIFF 2.0; file names and ids are unchanged
+
+### Fixed
+
+- Stop replacing the inherited layout and partial root paths at index 0 with
+  folders that do not exist; without SiteKit the `Default` layout of
+  fluid_styled_content was not found
+- Render no heading for items without a title instead of an empty one
+- Embed the navigation arrows in `Timeline.scss` as data URIs; the relative
+  `url('../../Public/Icons/…')` was resolved against the importing build and
+  broke it
+- Point `original` of `locallang_db.xlf` to the actual file path
+- Carry the MIT license notice of
+  [squarechip/timeline](https://github.com/squarechip/timeline) in
+  `Timeline.js` and `Timeline.scss` as preserved `/*! */` comments, so it
+  survives minification, and ship the license text as
+  `Resources/Public/Js/Timeline.LICENSE.txt`
+
+### Removed
+
+- Remove `ext_emconf.php`; the metadata is in `composer.json`
+- Remove `ext_tables.sql`; TYPO3 creates all columns from the TCA
+- Remove `Configuration/page.tsconfig`; the wizard entry is registered by the
+  TCA select item since TYPO3 13
+
 ## [1.1.0] — 2026-05-30
 
 ### Added
@@ -29,5 +86,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Timeline JavaScript from [squarechip/timeline](https://github.com/squarechip/timeline) (vendored)
 - TYPO3 v13.4 and v14 compatibility
 
-[1.1.0]: https://github.com/oliverthiele/ot-timeline/compare/v1.0.0...v1.1.0
+[2.0.0]: https://github.com/oliverthiele/ot-timeline/compare/1.1.0...v2.0.0
+[1.1.0]: https://github.com/oliverthiele/ot-timeline/compare/v1.0.0...1.1.0
 [1.0.0]: https://github.com/oliverthiele/ot-timeline/releases/tag/v1.0.0

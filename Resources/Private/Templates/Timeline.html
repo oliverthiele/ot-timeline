@@ -10,13 +10,41 @@
 <f:layout name="Default"/>
 
 <f:section name="Main">
-    <div class="timeline">
+    <f:comment><!--
+        The item titles sit one level below the header of the content element.
+        Without a visible header, they take the default header level.
+    --></f:comment>
+    <f:variable name="defaultHeaderLevel" value="{settings.defaultHeaderType}"/>
+    <f:if condition="!{defaultHeaderLevel}">
+        <f:variable name="defaultHeaderLevel" value="2"/>
+    </f:if>
+    <f:variable name="titleLevel" value="{defaultHeaderLevel}"/>
+    <f:if condition="{data.header} && {data.header_layout} != 100">
+        <f:if condition="{data.header_layout} > 0">
+            <f:then>
+                <f:variable name="titleLevel" value="{data.header_layout + 1}"/>
+            </f:then>
+            <f:else>
+                <f:variable name="titleLevel" value="{defaultHeaderLevel + 1}"/>
+            </f:else>
+        </f:if>
+    </f:if>
+    <f:if condition="{titleLevel} > 6">
+        <f:variable name="titleLevel" value="6"/>
+    </f:if>
+
+    <div class="timeline" data-js="otTimeline"
+         data-vertical-start-position="right"
+         data-visible-items="2"
+         data-vertical-trigger="150px">
         <div class="timeline__wrap">
             <div class="timeline__items">
                 <f:for each="{timelineItems}" as="item">
                     <div class="timeline__item">
                         <div class="timeline__content">
-                            <h2>{item.data.title}</h2>
+                            <f:if condition="{item.data.title}">
+                                <h{titleLevel} class="ot-timeline-title">{item.data.title}</h{titleLevel}>
+                            </f:if>
                             <f:if condition="{item.files -> f:count()} > 0">
                                 <f:for each="{item.files}" as="image">
                                     <f:image image="{image}" class="img-fluid mb-3" alt="{image.alternative}" maxWidth="700"/>
@@ -29,17 +57,11 @@
             </div>
         </div>
     </div>
-    <f:comment> <!-- <![CDATA[
+    <f:comment><!--
         <f:asset.css identifier="ot-timeline-css" href="EXT:ot_timeline/Resources/Public/Css/timeline.css"/>
-    ]]>	--> </f:comment>
+    --></f:comment>
     <f:asset.script identifier="ot-timeline-js" src="EXT:ot_timeline/Resources/Public/Js/Timeline.js"/>
-    <f:asset.script identifier="ot-timeline-js-init">
-    timeline(document.querySelectorAll('.timeline'), {
-        verticalStartPosition: 'right',
-        visibleItems: 2,
-        verticalTrigger: '150px'
-    });
-    </f:asset.script>
+    <f:asset.script identifier="ot-timeline-init-js" src="EXT:ot_timeline/Resources/Public/Js/TimelineInit.js"/>
 
 </f:section>
 
