@@ -2,14 +2,12 @@ tt_content {
   ot_timeline =< lib.contentElement
   ot_timeline {
     templateName = Timeline
+    # Index 0 replaces only the fluid_styled_content templates, which this
+    # element does not use. Index 10 stays free for the project override via
+    # styles.templates.templateRootPath. Layouts and partials are inherited
+    # from lib.contentElement.
     templateRootPaths {
       0 = EXT:ot_timeline/Resources/Private/Templates/
-    }
-    layoutRootPaths {
-      0 = EXT:ot_timeline/Resources/Private/Layouts/
-    }
-    partialRootPaths {
-      0 = EXT:ot_timeline/Resources/Private/Partials/
     }
     dataProcessing {
       1734357419 = database-query

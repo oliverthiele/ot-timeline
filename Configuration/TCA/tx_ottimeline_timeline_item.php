@@ -15,6 +15,8 @@ return [
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
         'sortby' => 'sorting',
+        // An inline child of tt_content, which is workspace aware.
+        'versioningWS' => true,
         'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -23,7 +25,6 @@ return [
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
-        'searchFields' => 'title',
         'iconfile' => 'EXT:ot_timeline/Resources/Public/Icons/FasCalendarPlus.svg',
     ],
     'types' => [
@@ -79,6 +80,7 @@ return [
             'config' => [
                 'type' => 'datetime',
                 'default' => 0,
+                'searchable' => false,
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
@@ -90,6 +92,7 @@ return [
             'config' => [
                 'type' => 'datetime',
                 'default' => 0,
+                'searchable' => false,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038),
                 ],
@@ -115,6 +118,7 @@ return [
                 'cols' => 30,
                 'rows' => 3,
                 'enableRichtext' => true,
+                'searchable' => false,
             ],
         ],
         'images' => [

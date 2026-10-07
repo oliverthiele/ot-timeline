@@ -16,7 +16,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => $ll . 'wizard.title',
         'value' => $extensionKey,
         'icon' => 'ot-icon-fas-timeline',
-        'group' => 'default',
+        'group' => 'extras',
         'description' => $ll . 'wizard.description',
     ],
     'textmedia',
@@ -47,11 +47,15 @@ $tempColumns = [
 ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 
 $GLOBALS['TCA']['tt_content']['types'][$extensionKey] = [
+    // The general, language, access and notes tabs are added by the core.
     'showitem' => '
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-        --palette--;;general,
-        --palette--;;headers,
+            --palette--;;headers,
             timeline_items,
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,',
-
+        --div--;core.form.tabs:appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;core.form.tabs:categories,
+            categories,
+        --div--;core.form.tabs:extended,
+    ',
 ];
